@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:truck_market_place/service/api_calls.dart';
 import 'package:truck_market_place/service/api_url.dart';
 import 'package:truck_market_place/service/controller/other_controller.dart';
 import 'package:truck_market_place/views/detailed_screens/truck_details.dart';
 import 'package:truck_market_place/widget/colors.dart';
 import 'package:truck_market_place/widget/route.dart';
 import 'package:truck_market_place/widget/shimmer_card.dart';
+import 'package:truck_market_place/widget/show_popUp.dart';
 
 class SentQuote extends StatelessWidget {
   SentQuote({super.key});
@@ -20,7 +22,7 @@ class SentQuote extends StatelessWidget {
       body: Obx(
         () => _otherController.isQuotes.value
             ? ListView.builder(
-                itemCount: 5, 
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   return const FavouriteShimmerCard();
                 },
@@ -177,6 +179,43 @@ class SentQuote extends StatelessWidget {
                                         ),
                                       ],
                                     ),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: InkWell(
+                                        onTap: () async {
+                                          ShowDialog.showConfirmUp(context, title: "Are you sure you want to remove this quote?", onTap: () async{
+                                            var repo =
+                                              await ApiRepository.deleteQuote(
+                                                truckId: _otherController
+                                                    .getMyQuoteList[index]
+                                                    .truckFormId,
+                                              );
+                                              if(repo.status == true){
+                                                await _otherController.fetchQuotes();
+                                              }
+                                          });
+                                          
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                            right: 12.sp,
+                                          ),
+                                          child: Text(
+                                            "Remove Quote",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 12.sp,
+
+                                              color: AppColors.primaryColor,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.right,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 4.h),
                                   ],
                                 ),
                               ),
@@ -192,6 +231,4 @@ class SentQuote extends StatelessWidget {
       ),
     );
   }
-
-  
 }
