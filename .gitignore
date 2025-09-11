@@ -43,3 +43,58 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+# VSCode settings
+.vscode/
+
+# Flutter/Dart specific
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+
+# Android specific
+android/.gradle/
+android/build/
+*.apk
+*.aar
+*.iml
+local.properties
+
+# iOS specific
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/build/
+
+# macOS specific
+macos/Flutter/ephemeral/
+macos/build/
+
+# Windows specific
+windows/Flutter/ephemeral/
+windows/build/
+
+# Linux specific
+linux/Flutter/ephemeral/
+linux/build/
+
+# Web build
+web/.dart_tool/
+web/build/
+
+# Other IDE/editor files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archives
+*.zip
+*.tar.gz
+*.tgz
+
+# Logs
+*.log
