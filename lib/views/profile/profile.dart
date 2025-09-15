@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:truck_market_place/service/api_url.dart';
 import 'package:truck_market_place/service/controller/other_controller.dart';
+import 'package:truck_market_place/views/profile/contact_us_screen.dart';
 import 'package:truck_market_place/views/profile/edit_profile.dart';
 import 'package:truck_market_place/views/profile/equipment_info.dart';
 import 'package:truck_market_place/views/profile/help_center.dart';
@@ -30,6 +31,8 @@ class ProfileScreen extends StatelessWidget {
             return MaterialPageRoute(builder: (_) => HelpCenter());
           case "/settings":
             return MaterialPageRoute(builder: (_) => SettingsScreen());
+            case "/contactUs":
+            return MaterialPageRoute(builder: (_) => ContactUsScreen());
           default:
             return MaterialPageRoute(builder: (_) => _ProfileHome());
         }
@@ -82,7 +85,7 @@ class _ProfileHome extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /// Profile Header
+             
               Center(
                 child: Row(
                   children: [
@@ -183,6 +186,7 @@ class _ProfileHome extends StatelessWidget {
                 icon: const AssetImage("assets/icons/contact_us.png"),
                 title: "Contact Us",
                 subtitle: "Contact via call, email",
+                onTap: () => Navigator.of(context).pushNamed("/contactUs"),
               ),
               _profileTile(
                 icon: const AssetImage("assets/icons/settings.png"),

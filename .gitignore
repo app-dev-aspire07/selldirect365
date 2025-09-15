@@ -1,8 +1,11 @@
-# Miscellaneous
+# -------------------------
+# General / OS
+# -------------------------
 *.class
 *.log
 *.pyc
 *.swp
+*.tmp
 .DS_Store
 .atom/
 .build/
@@ -12,55 +15,46 @@
 .swiftpm/
 migrate_working_dir/
 
-# IntelliJ related
+# -------------------------
+# IDE Related
+# -------------------------
+# IntelliJ / Android Studio
 *.iml
 *.ipr
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# VSCode
+.vscode/
 
-# Flutter/Dart/Pub related
+# -------------------------
+# Flutter / Dart / Pub
+# -------------------------
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
+.packages
 .pub-cache/
 .pub/
 /build/
 
-# Symbolication related
-app.*.symbols
-
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-# VSCode settings
-.vscode/
-
-# Flutter/Dart specific
-.dart_tool/
-.packages
-.pub-cache/
-.pub/
-
-# Android specific
+# -------------------------
+# Android
+# -------------------------
 android/.gradle/
 android/build/
 *.apk
 *.aar
-*.iml
 local.properties
+/android/app/debug
+/android/app/profile
+/android/app/release
 
-# iOS specific
+# -------------------------
+# iOS
+# -------------------------
 ios/Pods/
 ios/.symlinks/
 ios/Flutter/Flutter.framework
@@ -69,32 +63,46 @@ ios/Flutter/Generated.xcconfig
 ios/Flutter/ephemeral/
 ios/build/
 
-# macOS specific
+# -------------------------
+# macOS
+# -------------------------
 macos/Flutter/ephemeral/
 macos/build/
 
-# Windows specific
+# -------------------------
+# Windows
+# -------------------------
 windows/Flutter/ephemeral/
 windows/build/
 
-# Linux specific
+# -------------------------
+# Linux
+# -------------------------
 linux/Flutter/ephemeral/
 linux/build/
 
-# Web build
+# -------------------------
+# Web
+# -------------------------
 web/.dart_tool/
 web/build/
 
-# Other IDE/editor files
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# Archives
+# -------------------------
+# Archives / Compressed
+# -------------------------
 *.zip
 *.tar.gz
 *.tgz
 
+# -------------------------
 # Logs
+# -------------------------
 *.log
+
+# -------------------------
+# Custom (Project Specific)
+# -------------------------
+ios_old/
+0/lib/src/
+devtools_options.yaml
+analysis_options.yaml

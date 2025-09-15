@@ -174,6 +174,8 @@ class _BottomNavState extends State<BottomNav> {
             _controller.index = currentIndex;
           }else if(index == 1){
             _otherController.fetchFavorites();
+          }else if(index == 0){
+            _homeController.fetchTrucks();
           }else if(index == 3){
             _otherController.fetchMyEquiments();
             _otherController.fetchQuotes();
@@ -188,7 +190,7 @@ class _BottomNavState extends State<BottomNav> {
         backgroundColor: AppColors.white,
         handleAndroidBackButtonPress: false,
         resizeToAvoidBottomInset: true,
-        stateManagement: false,
+        stateManagement: true,
         navBarHeight: MediaQuery.of(context).viewInsets.bottom > 0 ? 0.0 : 60.h,
         hideNavigationBarWhenKeyboardAppears: true,
         animationSettings: const NavBarAnimationSettings(

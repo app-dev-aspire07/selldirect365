@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:truck_market_place/app_utils/appUtils.dart';
 import 'package:truck_market_place/service/api_calls.dart';
+import 'package:truck_market_place/service/controller/home_controller.dart';
 import 'package:truck_market_place/views/bottom_nav.dart';
 import 'package:truck_market_place/views/profile/equipment_info.dart';
 import 'package:truck_market_place/widget/app_bar.dart';
@@ -31,7 +32,7 @@ class _DocumentUploadState extends State<DocumentUpload> {
   String _selectedCategory = "Insurance";
   bool _isUploading = false;
   double _uploadProgress = 0.0; // 0 to 1.0
-
+final HomeController _homeController = Get.find();
   Future<void> _pickDocument() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -366,6 +367,7 @@ class _DocumentUploadState extends State<DocumentUpload> {
                           onPressed: () async{
                             Navigator.pop(context);
                             Get.offAll(() => BottomNav(currentIndexx: 0));
+                            await _homeController.fetchTrucks();
                           },
                           child: Text(
                             "Go to Home",
@@ -392,9 +394,9 @@ class _DocumentUploadState extends State<DocumentUpload> {
                             Navigator.pop(context);
                             Get.offAll(
                               () => BottomNav(currentIndexx: 3),
-                            ); // Profile tab
+                            );
                             Future.delayed(Duration(milliseconds: 200), () {
-                              // Profile tab ka nested navigator se push karo
+                             
                               Get.to(() => EquipmentInfo());
                             });
                           },
